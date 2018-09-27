@@ -1,17 +1,23 @@
 'use strict';
-
+ 
 // Cart constructor.
 var Cart = function(items) {
-  // this.items is an array of CartItem instances.
+  // this.items is an array of CartItem instances.  
   this.items = items;
 };
 
 Cart.prototype.addItem = function(product, quantity) {
   // TODO: Fill in this instance method to create a new CartItem and add it to this.items
+  var product = product;
+  var quantity = quantity;
+  var newCartItem = cartItem(product, quantity);
+  Cart.push(newCartItem);
+  
 };
 
 Cart.prototype.saveToLocalStorage = function() {
   // TODO: Fill in this instance method to save the contents of the cart to localStorage
+  localStorage.setItem("cartyB", JSON.stringify(Cart));
 };
 
 Cart.prototype.removeItem = function(item) {
@@ -57,3 +63,6 @@ function generateCatalog() {
 
 // Initialize the app by creating the big list of products with images and names
 generateCatalog();
+var testItem = new Product('assets/banana.jpg', 'Banana');
+Cart.addItem(testItem, 2);
+Cart.saveToLocalStorage();
