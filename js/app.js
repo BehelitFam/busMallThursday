@@ -10,8 +10,8 @@ Cart.prototype.addItem = function(product, quantity) {
   // TODO: Fill in this instance method to create a new CartItem and add it to this.items
   var product = product;
   var quantity = quantity;
-  var newCartItem = cartItem(product, quantity);
-  Cart.push(newCartItem);
+  var newCartItem = new CartItem(product, quantity);
+  this.items.push(newCartItem);
   
 };
 
@@ -63,6 +63,3 @@ function generateCatalog() {
 
 // Initialize the app by creating the big list of products with images and names
 generateCatalog();
-var testItem = new Product('assets/banana.jpg', 'Banana');
-Cart.addItem(testItem, 2);
-Cart.saveToLocalStorage();
