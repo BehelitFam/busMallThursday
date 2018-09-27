@@ -80,7 +80,3 @@ catalogForm.addEventListener('submit', handleSubmit);
 // Before anything else of value can happen, we need to fill in the select
 // drop down list in the form.
 populateForm();
-
-var testItem = new Product('assets/banana.jpg', 'Banana');
-cart.addItem(testItem, 2);
-cart.saveToLocalStorage();
