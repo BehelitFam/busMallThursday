@@ -17,13 +17,14 @@ Cart.prototype.saveToLocalStorage = function() {
   localStorage.setItem("cartyB", JSON.stringify(cart.items));
 };
 
-Cart.prototype.removeItem = function(product) {
-  var product = product;
+Cart.prototype.removeItem = function(prodItem) {
+  var prodItem = prodItem;
   for (var i=0; i < this.items.length; i++) {
-    if (this.items[i].name === product.name) {
-      this.items.splice(i, 1);
+    if (this.items[i].name === prodItem.name) {
+      console.log(this.items.splice(i, 1) + 'removed');
     }
   }
+  console.log('removed an item. hopefully');
 };
 
 var CartItem = function(product, quantity) {
