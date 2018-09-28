@@ -1,0 +1,49 @@
+html{
+  height:100%;
+  width:100%;
+}
+ 
+body{
+  height: 100%
+}
+header{
+  height: 7em;
+  background-color: white;
+  font-family: 'Patua One', cursive;
+
+}
+
+h1{
+  color:black;
+  font-size: 2.5em;
+  margin-left: 2em;
+}
+
+main{
+  font-family: 'Alegreya Sans', sans-serif;
+
+}
+
+.card header h1{
+  font-size: 1.5em;
+  color: black;
+}
+
+nav ul li{
+  display: inline;
+  margin: 2em;
+}
+
+
+.remove{
+  color:red;
+}
+
+main{
+  background-color: grey;
+  height: 100%;
+}
+
+footer{
+  height: 3em;
+}
