@@ -7,7 +7,7 @@ table.addEventListener('click', removeItemFromCart);
 var cart;
 
 function loadCart() {
-  var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+  var cartItems = JSON.parse(localStorage.getItem('cartyB')) || [];
   cart = new Cart(cartItems);
 }
 
@@ -34,11 +34,16 @@ function showCart() {
 }
 
 function removeItemFromCart(event) {
+  var rem = event.target.nextSibling;
+  console.log(rem);
+  cart.removeItem(findProd(rem));
 
   // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
   // TODO: Save the cart back to local storage
+  cart.saveToLocalStorage();
   // TODO: Re-draw the cart table
-
+  clearCart();
+  showCart();
 }
 
 // This will initialize the page and draw the cart on screen

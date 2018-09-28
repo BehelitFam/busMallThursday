@@ -2,12 +2,10 @@
  
 // Cart constructor.
 var Cart = function(items) {
-  // this.items is an array of CartItem instances.  
   this.items = items;
 };
 
 Cart.prototype.addItem = function(product, quantity) {
-  // TODO: Fill in this instance method to create a new CartItem and add it to this.items
   var product = product;
   var quantity = quantity;
   var newCartItem = new CartItem(product, quantity);
@@ -16,13 +14,16 @@ Cart.prototype.addItem = function(product, quantity) {
 };
 
 Cart.prototype.saveToLocalStorage = function() {
-  // TODO: Fill in this instance method to save the contents of the cart to localStorage
-  localStorage.setItem("cartyB", JSON.stringify(cart));
+  localStorage.setItem("cartyB", JSON.stringify(cart.items));
 };
 
-Cart.prototype.removeItem = function(item) {
-  // TODO: Fill in this instance method to remove one item from the cart.
-  // Note: You will have to decide what kind of parameter to pass in here!
+Cart.prototype.removeItem = function(product) {
+  var product = product;
+  for (var i=0; i < this.items.length; i++) {
+    if (this.items[i].name === product.name) {
+      this.items.splice(i, 1);
+    }
+  }
 };
 
 var CartItem = function(product, quantity) {
@@ -36,6 +37,30 @@ var Product = function(filePath, name) {
   this.name = name;
   Product.allProducts.push(this);
 };
+
+function findProd (prodName) {
+  var selectedProd;
+  for (var i=0; i<Product.allProducts.length; i++){
+    if (Product.allProducts[i].name === prodName) {
+      selectedProd = Product.allProducts[i];
+      console.log(selectedProd);
+    }
+  }
+  return selectedProd;
+}
+
+function makeChild(parent, childElementType, childText, childClass) {
+  var el = document.createElement('' + childElementType);
+  if (childText) {
+      el.textContent = '' + childText;
+  }
+  if (childClass) {
+      el.classList.add('' + childClass);
+  }
+  parent.appendChild(el);
+  return el;
+}
+
 Product.allProducts = [];
 
 function generateCatalog() {
